@@ -1,0 +1,12 @@
+<h1>owo</h1>
+{% for restaurant, food_list in restaurant_zip %}
+	<h3>{{ restaurant.name }}</h3>
+	<h3>{{ restaurant.phone_number }}</h3>
+	<h3>{{ restaurant.address }}</h3>
+	{% for food in food_list %}
+		<h6>{{ food.name }}</h6>
+		<h6>{{ food.price }}</h6>
+		<h6>{{ food.comment }}</h6>
+		<h6>{{ food.is_spicy }}</h6>
+	{% endfor %}
+{% endfor %}

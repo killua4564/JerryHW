@@ -1,0 +1,69 @@
+<style>
+	.btn-sty {
+	    display: inline-block;
+	    text-align: center;
+	    font-size: 16px;
+	    padding: 10px;
+	    margin: 3px;
+	    border-radius: 5px;
+	    background: #7fd640;
+	    color: #fff;
+	    border: none;
+	    cursor: pointer;
+	    transition: .3s;
+	    vertical-align: middle;
+	}
+	.rwd_table {
+	    width: 100%;
+	    border-collapse: collapse;
+	    font-size: 16px;
+	    border-spacing: 0;
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    font: inherit;
+	}
+	.rwd_table th {
+	    background: #f7b01f;
+	    color: #fff;
+	    font-weight: bold;
+	}
+	.rwd_table th, td {
+	    padding: 10px;
+	    text-align: left;
+	    color: #8b8b8b;
+	}
+</style>
+<style rel="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<h1>Person</h1>
+<table id="example" class="rwd_table" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th>姓名</th>
+			<th>性別</th>
+			<th>興趣</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for person in people %}
+		<tr>
+			<td>{{ person.name }}</td>
+			<td>{{ person.gender }}</td>
+			<td>{{ person.hobby|linebreaks }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+<script>
+	$(document).ready(function () {
+	    $('#example').DataTable({
+        	"paging": false,
+        	"lengthChange": false,
+	        "searching": false,
+	        "ordering": true,
+	        "info": false
+      	});
+	});
+</script>
