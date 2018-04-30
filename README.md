@@ -17,7 +17,7 @@
         - Email
         - Password
     - $ git clone https://github.com/heroku/python-getting-started.git
-	- in folder 0430
+        - in folder 0430
     - $ cd python-getting-started
     - $ heroku create
     - $ git push heroku master
@@ -35,7 +35,7 @@
     - $ git commit -m '<commit>'
     - $ git push heroku master
     - $ heroku run python manage.py createsuperuser
-	- admin
-	- P@ssword
+        - admin
+        - P@ssword
     - heroku open
 
