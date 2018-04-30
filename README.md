@@ -27,12 +27,12 @@
 - Add own apps to heroku
     - $ sudo pip install Django --upgrade
     - $ python manage.py migrate
-    - $ python manage.py startapp <appname>
-    - move your app file to the app folder
+    - $ python manage.py startapp \<appname\>
+    - # move your app file to the app folder
     - $ python manage.py makemigrations
     - $ python manage.py migrate
     - $ git add .
-    - $ git commit -m '<commit>'
+    - $ git commit -m '\<commit\>'
     - $ git push heroku master
     - $ heroku run python manage.py createsuperuser
         - admin
