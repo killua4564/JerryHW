@@ -28,7 +28,7 @@
     - $ sudo pip install Django --upgrade
     - $ python manage.py migrate
     - $ python manage.py startapp \<appname\>
-    - # move your app file to the app folder
+    - \[move your app file to the app folder\]
     - $ python manage.py makemigrations
     - $ python manage.py migrate
     - $ git add .
