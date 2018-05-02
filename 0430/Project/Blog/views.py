@@ -1,20 +1,29 @@
-from django.utils import timezone
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from .models import Post
-
-def Mothers_Day(request):
-	if request.method == 'POST':
-		author = request.POST.get('author')
-		title = request.POST.get('title')
-		text = request.POST.get('text')
-		post = Post()
-		post.author = author
-		post.title = title
-		post.text = text
-		post.save()
-	return render(request, 'Mothers_Day.html')
+from .models import *
 
 def blog(request):
-	posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
-	return render(request, 'blog.html', {'posts': posts}) 
+	if request.method == 'POST':
+		pk = request.POST.get('pk')
+		Post.objects.get(pk=pk).delete()
+	post_list = Post.objects.all()
+	return render(request, 'blog.html', {'post_list': post_list})
+
+def new(request):
+	if request.method == 'POST':
+		title = request.POST.get('title')
+		content = request.POST.get('content')
+		Post.objects.create(title=title, content=content)
+		return redirect('/blog')
+	return render(request, 'new.html')
+
+def edit(request):
+	pk = request.GET.get('q')
+	post = Post.objects.get(pk=pk)
+	if request.method == 'POST':
+		post.title = request.POST.get('title')
+		post.content = request.POST.get('content')
+		post.save()
+		return redirect('/blog')
+	return render(request, 'edit.html', {'post': post})
+

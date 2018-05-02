@@ -1,7 +1,8 @@
 from django.conf.urls import url
-from . import views
+from . import views 
 
 urlpatterns = [
-    url(r'^Mothers_Day/$', views.Mothers_Day, name='Mothers_Day'),
-    url(r'^blog/$', views.blog, name='blog'),
+    url(r'^$', views.blog, name='blog'),
+    url(r'^new/', views.new, name="new"),
+    url(r'^edit/', views.edit, name="edit"),
 ]

@@ -1,7 +1,9 @@
-from django.conf.urls import url, include
 from django.contrib import admin
+from django.urls import path
+from django.conf.urls import url, include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('Blog.urls')),
+    path('admin/', admin.site.urls),
+    url('blog/', include('Blog.urls')),
+    url('motherday/', include('Mothers_Day.urls')),
 ]

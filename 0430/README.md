@@ -1,0 +1,35 @@
+## 0430
+- site url
+    - https://aqueous-brook-89727.herokuapp.com/
+    - https://aqueous-brook-89727.herokuapp.com/blog
+    - https://aqueous-brook-89727.herokuapp.com/motherday
+- heroku
+    - install heroku
+    - $ heroku login
+        - Email
+        - Password
+    - $ git clone https://github.com/heroku/python-getting-started.git
+        - in folder 0430
+    - $ cd python-getting-started
+    - $ heroku create
+    - $ git push heroku master
+    - $ heroku ps:scale web=1
+    - $ heroku open
+
+- Add own apps to heroku
+    - $ sudo pip install Django --upgrade
+    - $ python manage.py migrate
+    - $ python manage.py startapp \<appname\>
+    - \[move your app file to the app folder\]
+    - $ python manage.py makemigrations
+    - $ python manage.py migrate
+    - $ git add .
+    - $ git commit -m '\<commit\>'
+    - $ git push heroku master
+    - $ heroku run python manage.py migrate
+    - $ heroku run python manage.py createsuperuser
+        - admin
+        - P@ssword
+    - $ heroku run python manage.py collectstatic
+    - $ heroku open
+

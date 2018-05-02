@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Post</title>
+</head>
+<body>
+	<form action="" method="post">
+		{% csrf_token %}
+		Title: <input name="title"><br><br>
+		Content: <textarea name="content"></textarea><br><br>
+		<input type="submit" value="submit">
+	</form>
+</body>
+</html>

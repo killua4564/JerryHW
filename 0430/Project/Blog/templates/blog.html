@@ -1,8 +1,22 @@
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.created_date }}</p>
-        <p>author: {{ post.author }}</p>
-        <p>title: {{ post.title }}</p>
-        <p>text: {{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+</head>
+<body>
+	<h1>My Blog</h1>
+	<div align="right"><a href="/blog/new"><button>New Post</button></a></div><hr>
+	{% for post in post_list %}
+		<div align="right">
+			<a href="/blog/edit?q={{ post.pk }}"><button>edit</button></a>
+			<form action="" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="pk" value="{{ post.pk }}">
+				<input type="submit" value="delete">
+			</form>
+		</div>
+		<h4>Title:</h4>{{ post.title }}
+		<h4>Content:</h4>{{ post.content }}<hr>
+	{% endfor %}
+</body>
+</html>
