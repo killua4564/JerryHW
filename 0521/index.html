@@ -11,6 +11,7 @@ button
 	<title>HW 0521</title>
 </head>
 <body>
+	<h1>計算機</h1>
 	<input type="number" id="x" value="0">
 	<input type="number" id="y" value="0">
 	<input type="text" id="z" disabled>
@@ -20,10 +21,15 @@ button
 	<button type="button" id="sub">-</button>
 	<button type="button" id="mul">*</button>
 	<button type="button" id="div">/</button>
+	<hr>
+	<h1>成績</h1>
+	<input type="number" name="score" value="0">
+	<button id="score">查詢</button>
+	<div id="score_view"></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$("button").click(function() {
+	$("button[type='button']").click(function() {
 		let id = $(this).attr('id');
 		let x = parseFloat($("input#x").val());
 		let y = parseFloat($("input#y").val());
@@ -41,6 +47,15 @@ button
 			$("input#y").val(0);
 		}
 		$("input#z").val(z);
+	});
+
+	$("button#score").click(function() {
+		let value = parseFloat($("input[name='score']").val());
+		if (value >= 60.0) {
+			$("div#score_view").html("及格");
+		} else {
+			$("div#score_view").html("不及格");
+		}
 	});
 </script>
 </html>
