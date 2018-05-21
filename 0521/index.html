@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<style>
+button
+{
+	background-color: red;
+	width: 80px;
+}
+</style>
+<html>
+<head>
+	<title>HW 0521</title>
+</head>
+<body>
+	<input type="number" id="x" value="0">
+	<input type="number" id="y" value="0">
+	<input type="text" id="z" disabled>
+	<br>
+	<button type="button" id="c">C</button>
+	<button type="button" id="add">+</button>
+	<button type="button" id="sub">-</button>
+	<button type="button" id="mul">*</button>
+	<button type="button" id="div">/</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$("button").click(function() {
+		let id = $(this).attr('id');
+		let x = parseFloat($("input#x").val());
+		let y = parseFloat($("input#y").val());
+		let z = 0;
+		if (id === "add"){
+			z = x + y;
+		} else if (id === "sub"){
+			z = x - y;
+		} else if (id === "mul"){
+		    z = x * y;
+		} else if (id === "div"){
+			z = x / y;
+		} else if (id === "c"){
+			$("input#x").val(0);
+			$("input#y").val(0);
+		}
+		$("input#z").val(z);
+	});
+</script>
+</html>
